@@ -115,9 +115,7 @@ const translations = {
     "footer.linkedin": "LinkedIn",
     "footer.portfolio": "Portafolio",
     "footer.copyright":
-      "© 2024 Fernando Aldama. Hecho con pasión y escalabilidad.",
-    "footer.privacy": "Política de privacidad",
-    "footer.terms": "Términos de servicio",
+      "© {year} Fernando Aldama. Hecho con pasión y escalabilidad.",
 
     // Meta y accesibilidad
     "meta.title": "Fer Aldama | Portfolio",
@@ -125,6 +123,8 @@ const translations = {
     "aria.linkedin": "Perfil de LinkedIn",
     "aria.whatsapp": "Contactar por WhatsApp",
     "aria.scrollTop": "Volver arriba",
+    "aria.openMenu": "Abrir menú",
+    "aria.closeMenu": "Cerrar menú",
   },
   en: {
     // Navigation
@@ -240,9 +240,7 @@ const translations = {
     "footer.linkedin": "LinkedIn",
     "footer.portfolio": "Portfolio",
     "footer.copyright":
-      "© 2024 Fernando Aldama. Built with Passion & Scalability.",
-    "footer.privacy": "Privacy Policy",
-    "footer.terms": "Terms of Service",
+      "© {year} Fernando Aldama. Built with Passion & Scalability.",
 
     // Meta and accessibility
     "meta.title": "Fer Aldama | Portfolio",
@@ -250,6 +248,8 @@ const translations = {
     "aria.linkedin": "LinkedIn profile",
     "aria.whatsapp": "Contact via WhatsApp",
     "aria.scrollTop": "Back to top",
+    "aria.openMenu": "Open menu",
+    "aria.closeMenu": "Close menu",
   },
 };
 
@@ -276,7 +276,13 @@ function applyTranslations(lang) {
   const t = translations[lang];
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (t[key]) el.textContent = t[key];
+    if (t[key]) {
+      let text = t[key];
+      if (key === "footer.copyright") {
+        text = text.replace("{year}", new Date().getFullYear());
+      }
+      el.textContent = text;
+    }
   });
   document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
     const key = el.getAttribute("data-i18n-alt");
@@ -292,8 +298,10 @@ function updateCvLink(lang) {
   const cvFile = CV_FILES[lang];
   const cvLink = document.getElementById("cv-download");
   const footerCvLink = document.getElementById("footer-cv-link");
+  const mobileCvLink = document.getElementById("cv-download-mobile");
   if (cvLink) cvLink.href = cvFile;
   if (footerCvLink) footerCvLink.href = cvFile;
+  if (mobileCvLink) mobileCvLink.href = cvFile;
 }
 
 function updateLangSelector(lang) {
