@@ -1,0 +1,994 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Fernando Aldama | Full Stack Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13b6ec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .glass-card {
+        background: rgba(35, 63, 72, 0.2);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(19, 182, 236, 0.1);
+      }
+      .glow-hover:hover {
+        box-shadow: 0 0 20px rgba(19, 182, 236, 0.2);
+        border-color: rgba(19, 182, 236, 0.4);
+      }
+      #scroll-to-top {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+      }
+      #scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      #scroll-to-top:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(19, 182, 236, 0.4);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-300"
+  >
+    <header
+      class="fixed top-0 w-full z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-[#233f48]"
+    >
+      <div
+        class="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <div class="p-2 bg-primary rounded-lg text-background-dark">
+            <span class="material-symbols-outlined font-bold">code</span>
+          </div>
+          <h2 class="text-lg font-black tracking-tight uppercase">Aldama</h2>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2 text-sm md:hidden">
+            <button
+              data-lang-btn="es"
+              class="hover:text-primary transition-colors text-slate-500"
+            >
+              ES
+            </button>
+            <span class="text-slate-400">|</span>
+            <button
+              data-lang-btn="en"
+              class="hover:text-primary transition-colors text-primary font-bold"
+            >
+              EN
+            </button>
+          </div>
+          <nav class="hidden md:flex items-center gap-10">
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#about"
+              data-i18n="nav.about"
+              >About</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#experience"
+              data-i18n="nav.experience"
+              >Experience</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#projects"
+              data-i18n="nav.projects"
+              >Projects</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#skills"
+              data-i18n="nav.skills"
+              >Skills</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#education"
+              data-i18n="nav.education"
+              >Education</a
+            >
+            <a
+              id="cv-download"
+              href="Fernando_Aldama_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-primary hover:bg-primary/90 text-background-dark px-5 py-2.5 rounded-lg text-sm font-bold transition-all transform active:scale-95 inline-block"
+              data-i18n="nav.downloadCV"
+              >Download CV</a
+            >
+            <div class="flex items-center gap-2 text-sm">
+              <button
+                data-lang-btn="es"
+                class="hover:text-primary transition-colors text-slate-500"
+              >
+                ES
+              </button>
+              <span class="text-slate-400">|</span>
+              <button
+                data-lang-btn="en"
+                class="hover:text-primary transition-colors text-primary font-bold"
+              >
+                EN
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class="pt-20">
+      <section class="max-w-[1200px] mx-auto px-6 py-20 md:py-32">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+          <div class="flex-1 space-y-8">
+            <div class="space-y-4">
+              <h1
+                class="text-5xl md:text-7xl font-black leading-[1.1] tracking-tight"
+              >
+                Fernando <span class="text-primary">Aldama</span>
+              </h1>
+              <h2
+                class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium max-w-xl"
+                data-i18n="hero.subtitle"
+              >
+                Desarrollador Front-End / Full Stack especializado en
+                ecosistemas modernos y escalables.
+              </h2>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="https://wa.me/595991247762?text=Hola%20Fernando%2C%20te%20escribo%20desde%20tu%20portfolio.%20"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-primary text-background-dark px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:shadow-[0_0_20px_rgba(19,182,236,0.3)] transition-all"
+              >
+                <span data-i18n="hero.contact">Contact Me</span>
+                <span class="material-symbols-outlined">send</span>
+              </a>
+              <a
+                href="https://linkedin.com/in/feraldam4"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-slate-200 dark:bg-[#233f48] text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-slate-300 dark:hover:bg-[#2d4e59] transition-all"
+              >
+                <span data-i18n="hero.linkedin">View LinkedIn</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" class="flex-shrink-0">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="relative group">
+            <div
+              class="absolute -inset-4 bg-primary/20 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"
+            ></div>
+            <div
+              class="w-64 h-64 md:w-96 md:h-96 rounded-3xl overflow-hidden border-4 border-slate-200 dark:border-[#233f48] shadow-2xl relative z-10"
+            >
+              <img
+                id="hero-img"
+                alt="Professional portrait of Fernando Aldama"
+                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                src="Yo3.png"
+                data-i18n-alt="img.alt"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-slate-50 dark:bg-[#0c161a] py-24" id="about">
+        <div class="max-w-[1200px] mx-auto px-6">
+          <div class="max-w-3xl">
+            <h3
+              class="text-primary font-bold uppercase tracking-widest text-sm mb-4"
+              data-i18n="about.title"
+            >
+              About Me
+            </h3>
+            <h2
+              class="text-3xl md:text-4xl font-bold mb-8 leading-tight"
+              data-i18n="about.heading"
+            >
+              Crafting high-performance digital experiences with a focus on
+              clean architecture.
+            </h2>
+            <p
+              class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed"
+              data-i18n="about.description"
+            >
+              Full Stack Developer focused on clean code, scalability, and
+              building high-quality digital experiences. I specialize in modern
+              technologies to solve complex problems, ensuring that every line
+              of code contributes to a robust and maintainable system.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="py-24 max-w-[1200px] mx-auto px-6" id="experience">
+        <div class="flex flex-col md:flex-row gap-16">
+          <div class="md:w-1/3">
+            <h3
+              class="text-primary font-bold uppercase tracking-widest text-sm mb-4"
+              data-i18n="exp.path"
+            >
+              Professional Path
+            </h3>
+            <h2 class="text-4xl font-bold mb-6" data-i18n="exp.title">
+              Experience
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400" data-i18n="exp.intro">
+              Working with industry leaders to build innovative fintech and
+              enterprise solutions.
+            </p>
+          </div>
+          <div
+            class="md:w-2/3 space-y-12 relative border-l-2 border-slate-200 dark:border-[#233f48] pl-8 ml-4"
+          >
+            <div class="relative">
+              <div
+                class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background-light dark:border-background-dark shadow-[0_0_10px_rgba(19,182,236,0.5)]"
+              ></div>
+              <div class="space-y-4">
+                <span
+                  class="text-xs font-bold text-primary"
+                  data-i18n="exp.itti.period"
+                  >Oct 2024 - Jan 2026</span
+                >
+                <h4 class="text-2xl font-bold" data-i18n="exp.itti.title">
+                  Front-End Developer @ ITTI
+                </h4>
+                <p
+                  class="text-slate-600 dark:text-slate-400"
+                  data-i18n="exp.itti.description"
+                >
+                  Desarrollo de interfaces web modernas utilizando Next.js y
+                  Tailwind CSS.
+                </p>
+                <ul class="space-y-2">
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.itti.bullet1"
+                      >Implementación de funcionalidades frontend integradas con
+                      NULL Platform.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.itti.bullet2"
+                      >Creación de componentes reutilizables y escalables
+                      siguiendo buenas prácticas.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.itti.bullet3"
+                      >Control de versiones y trabajo colaborativo con Git y
+                      GitHub.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background-light dark:border-background-dark shadow-[0_0_10px_rgba(19,182,236,0.5)]"
+              ></div>
+              <div class="space-y-4">
+                <span
+                  class="text-xs font-bold text-primary"
+                  data-i18n="exp.n5.period"
+                  >Jul 2021 - Sep 2024</span
+                >
+                <h4 class="text-2xl font-bold" data-i18n="exp.n5.title">
+                  Front-End Developer @ N5 Now
+                </h4>
+                <p
+                  class="text-slate-600 dark:text-slate-400"
+                  data-i18n="exp.n5.description"
+                >
+                  Desarrollo y mantenimiento de aplicaciones web y móviles con
+                  React.js, React Native, Redux y Javascript.
+                </p>
+                <ul class="space-y-2">
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.n5.bullet1"
+                      >Implementación de nuevas funcionalidades y mejoras de UI
+                      enfocadas en usabilidad y rendimiento.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.n5.bullet2"
+                      >Colaboración con equipos multidisciplinarios en un
+                      entorno internacional.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.n5.bullet3"
+                      >Participación en revisiones de código y procesos de
+                      mejora continua.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-slate-400 dark:bg-[#233f48] border-4 border-background-light dark:border-background-dark"
+              ></div>
+              <div class="space-y-4">
+                <span
+                  class="text-xs font-bold text-slate-500"
+                  data-i18n="exp.tecnovate.period"
+                  >Dec 2018 - Jun 2021</span
+                >
+                <h4 class="text-2xl font-bold" data-i18n="exp.tecnovate.title">
+                  Full Stack Developer @ Tecnovate PY
+                </h4>
+                <p
+                  class="text-slate-600 dark:text-slate-400"
+                  data-i18n="exp.tecnovate.description"
+                >
+                  Desarrollo de sistemas web para comercios utilizando React.js,
+                  Javascript, Node.js y Express.
+                </p>
+                <ul class="space-y-2">
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.tecnovate.bullet1"
+                      >Implementación de módulos de ventas, compras y control de
+                      stock.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.tecnovate.bullet2"
+                      >Integración de bases de datos y APIs REST.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.tecnovate.bullet3"
+                      >Participación en el análisis de requerimientos y soporte
+                      funcional a clientes.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-slate-400 dark:bg-[#233f48] border-4 border-background-light dark:border-background-dark"
+              ></div>
+              <div class="space-y-4">
+                <span
+                  class="text-xs font-bold text-slate-500"
+                  data-i18n="exp.medalla.period"
+                  >Nov 2013 - Nov 2018</span
+                >
+                <h4 class="text-2xl font-bold" data-i18n="exp.medalla.title">
+                  Programador Genexus @ Cooperativa Medalla Milagrosa
+                </h4>
+                <p
+                  class="text-slate-600 dark:text-slate-400"
+                  data-i18n="exp.medalla.description"
+                >
+                  Desarrollo y mantenimiento de sistemas internos de gestión.
+                </p>
+                <ul class="space-y-2">
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.medalla.bullet1"
+                      >Implementación de soluciones para control administrativo
+                      y operativo.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.medalla.bullet2"
+                      >Soporte técnico y evolución de sistemas según necesidades
+                      del negocio.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-2 text-sm">
+                    <span
+                      class="material-symbols-outlined text-primary text-sm mt-1"
+                      >check_circle</span
+                    >
+                    <span data-i18n="exp.medalla.bullet3"
+                      >Trabajo continuo con usuarios finales para mejora de
+                      procesos.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-slate-50 dark:bg-[#0c161a] py-24" id="projects">
+        <div class="max-w-[1200px] mx-auto px-6">
+          <div class="text-center mb-16">
+            <h3
+              class="text-primary font-bold uppercase tracking-widest text-sm mb-4"
+              data-i18n="projects.portfolio"
+            >
+              Portfolio
+            </h3>
+            <h2 class="text-4xl font-bold" data-i18n="projects.featured">
+              Featured Projects
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div
+              class="glass-card rounded-2xl overflow-hidden flex flex-col glow-hover transition-all group relative"
+            >
+              <div
+                class="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-[10px] font-bold uppercase tracking-wider"
+              >
+                <span>🚀</span>
+                <span data-i18n="projects.featuredBadge"
+                  >Proyecto destacado</span
+                >
+              </div>
+              <div
+                class="h-48 bg-slate-200 dark:bg-[#111e22] relative overflow-hidden"
+              >
+                <img
+                  src="venta-screenshot.png"
+                  alt="Punto de venta del Sistema de Gestión de Venta"
+                  class="w-full h-full object-cover object-top"
+                  data-i18n-alt="projects.bodega.imgAlt"
+                />
+              </div>
+              <div class="p-6 flex flex-col flex-1">
+                <h4
+                  class="text-xl font-bold mb-3"
+                  data-i18n="projects.bodega.title"
+                >
+                  Sistema de Gestión de Venta
+                </h4>
+                <p
+                  class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1 leading-relaxed"
+                  data-i18n="projects.bodega.desc"
+                >
+                  Sistema web de gestión de bodega que permite administrar
+                  productos, stock y operaciones diarias de manera simple e
+                  intuitiva. Backend en Node.js con MySQL, autenticación y datos
+                  en tiempo real.
+                </p>
+                <p
+                  class="text-[11px] text-slate-500 dark:text-slate-500 mb-4"
+                  data-i18n="projects.bodega.credentials"
+                >
+                  Demo: administrador / administrador
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span
+                    class="px-2 py-0.5 bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider rounded"
+                    >Node.js</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider rounded"
+                    >MySQL</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider rounded"
+                    >React</span
+                  >
+                </div>
+                <a
+                  href="https://tecnovate.com.py/bodega"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-primary hover:bg-primary/90 text-background-dark py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1.5 w-full"
+                >
+                  <span data-i18n="projects.viewDemo">Ver Demo</span>
+                  <span class="material-symbols-outlined text-sm"
+                    >open_in_new</span
+                  >
+                </a>
+              </div>
+            </div>
+            <div
+              class="glass-card rounded-2xl overflow-hidden flex flex-col glow-hover transition-all group"
+            >
+              <div
+                class="h-48 bg-slate-200 dark:bg-[#111e22] relative overflow-hidden"
+              >
+                <img
+                  src="gimnasio-screenshot.png"
+                  alt="Panel de control del Sistema de Gestión de Gimnasio"
+                  class="w-full h-full object-cover object-top"
+                  data-i18n-alt="projects.gimnasio.imgAlt"
+                />
+              </div>
+              <div class="p-6 flex flex-col flex-1">
+                <h4
+                  class="text-xl font-bold mb-3"
+                  data-i18n="projects.gimnasio.title"
+                >
+                  Sistema de Gestión de Gimnasio
+                </h4>
+                <p
+                  class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1 leading-relaxed"
+                  data-i18n="projects.gimnasio.desc"
+                >
+                  Plataforma integral para gimnasios que centraliza la gestión
+                  de suscripciones, cobro de membresías, venta de productos de
+                  cantina y punto de venta. Control de pagos, asistencia y
+                  ventas en una sola solución.
+                </p>
+                <p
+                  class="text-[11px] text-slate-500 dark:text-slate-500 mb-4"
+                  data-i18n="projects.gimnasio.credentials"
+                >
+                  Demo: administrador / administrador
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span
+                    class="px-2 py-0.5 bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider rounded"
+                    >Node.js</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider rounded"
+                    >MySQL</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider rounded"
+                    >React</span
+                  >
+                </div>
+                <a
+                  href="http://tecnovate.com.py/gimnasio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-primary hover:bg-primary/90 text-background-dark py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1.5 w-full"
+                >
+                  <span data-i18n="projects.viewDemo">Ver Demo</span>
+                  <span class="material-symbols-outlined text-sm"
+                    >open_in_new</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-24" id="skills">
+        <div class="max-w-[1200px] mx-auto px-6">
+          <div class="text-center mb-16">
+            <h3
+              class="text-primary font-bold uppercase tracking-widest text-sm mb-4"
+              data-i18n="skills.competencies"
+            >
+              Core Competencies
+            </h3>
+            <h2 class="text-4xl font-bold" data-i18n="skills.techstack">
+              My Tech Stack
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-2xl glow-hover transition-all">
+              <div class="flex items-center gap-4 mb-6">
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >terminal</span
+                >
+                <h4 class="text-xl font-bold" data-i18n="skills.frontend">
+                  Frontend
+                </h4>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >Next.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >Tailwind CSS</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >TypeScript</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >Redux Toolkit</span
+                >
+              </div>
+            </div>
+            <div class="glass-card p-8 rounded-2xl glow-hover transition-all">
+              <div class="flex items-center gap-4 mb-6">
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >database</span
+                >
+                <h4 class="text-xl font-bold" data-i18n="skills.backend">
+                  Backend
+                </h4>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >Express</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >MongoDB</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >GraphQL</span
+                >
+              </div>
+            </div>
+            <div class="glass-card p-8 rounded-2xl glow-hover transition-all">
+              <div class="flex items-center gap-4 mb-6">
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >construction</span
+                >
+                <h4 class="text-xl font-bold" data-i18n="skills.tools">
+                  Tools
+                </h4>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >Docker</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >Git / GitHub</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >AWS</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >Jest</span
+                >
+                <span
+                  class="px-3 py-1 bg-background-light dark:bg-[#111e22] rounded-md text-sm border border-slate-200 dark:border-[#233f48]"
+                  >Figma</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-slate-50 dark:bg-[#0c161a] py-24 px-6" id="education">
+        <div class="max-w-[1200px] mx-auto">
+          <h3
+            class="text-primary font-bold uppercase tracking-widest text-sm mb-4"
+            data-i18n="edu.background"
+          >
+            Background
+          </h3>
+          <h2 class="text-4xl font-bold mb-12" data-i18n="edu.title">
+            Education &amp; Certs
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+              class="p-8 border border-slate-200 dark:border-[#233f48] rounded-2xl flex gap-6 items-start"
+            >
+              <span class="material-symbols-outlined text-primary text-4xl"
+                >school</span
+              >
+              <div>
+                <h4 class="text-xl font-bold" data-i18n="edu.una">
+                  Universidad Nacional de Asunción (UNA)
+                </h4>
+                <p
+                  class="text-slate-600 dark:text-slate-400"
+                  data-i18n="edu.una.degree"
+                >
+                  B.S. in Computer Science
+                </p>
+              </div>
+            </div>
+            <div
+              class="p-8 border border-slate-200 dark:border-[#233f48] rounded-2xl flex gap-6 items-start"
+            >
+              <span class="material-symbols-outlined text-primary text-4xl"
+                >workspace_premium</span
+              >
+              <div>
+                <h4 class="text-xl font-bold" data-i18n="edu.soyhenry">
+                  SoyHenry Bootcamp
+                </h4>
+                <p
+                  class="text-slate-600 dark:text-slate-400"
+                  data-i18n="edu.soyhenry.desc"
+                >
+                  Full Stack Web Development (800+ hours)
+                </p>
+              </div>
+            </div>
+            <div
+              class="p-8 border border-slate-200 dark:border-[#233f48] rounded-2xl flex gap-6 items-start"
+            >
+              <span class="material-symbols-outlined text-primary text-4xl"
+                >verified</span
+              >
+              <div>
+                <h4 class="text-xl font-bold" data-i18n="edu.genexus">
+                  GeneXus Certified Developer
+                </h4>
+                <p
+                  class="text-slate-600 dark:text-slate-400"
+                  data-i18n="edu.genexus.desc"
+                >
+                  Enterprise App Development Specialist
+                </p>
+              </div>
+            </div>
+            <div
+              class="p-8 border border-slate-200 dark:border-[#233f48] rounded-2xl flex gap-6 items-center bg-primary/5"
+            >
+              <span class="material-symbols-outlined text-primary text-4xl"
+                >history_edu</span
+              >
+              <div>
+                <h4 class="text-xl font-bold" data-i18n="edu.continuous">
+                  Continuous Learning
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="bg-slate-100 dark:bg-[#080f12] border-t border-slate-200 dark:border-[#233f48] py-20"
+    >
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start gap-12"
+        >
+          <div class="space-y-6">
+            <h2 class="text-3xl font-black">
+              <span data-i18n="footer.talk">Let's Talk.</span>
+            </h2>
+            <p
+              class="text-slate-600 dark:text-slate-400 max-w-sm text-lg"
+              data-i18n="footer.description"
+            >
+              Always open to discussing new projects, creative ideas or
+              opportunities to be part of your visions.
+            </p>
+            <div class="flex gap-4">
+              <a
+                class="w-12 h-12 rounded-full bg-slate-200 dark:bg-[#233f48] flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all"
+                href="https://linkedin.com/in/feraldam4"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
+                data-i18n-aria="aria.linkedin"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a
+                class="w-12 h-12 rounded-full bg-slate-200 dark:bg-[#233f48] flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all"
+                href="https://wa.me/595991247762?text=Hola%20Fernando%2C%20te%20escribo%20desde%20tu%20portfolio.%20"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contactar por WhatsApp"
+                data-i18n-aria="aria.whatsapp"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+            <div class="space-y-4">
+              <h4
+                class="font-bold text-slate-500 uppercase tracking-widest text-xs"
+                data-i18n="footer.contact"
+              >
+                Contact Information
+              </h4>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3 text-sm">
+                  <span class="material-symbols-outlined text-primary text-lg"
+                    >mail</span
+                  >
+                  <a
+                    href="mailto:fer.aldam4@gmail.com"
+                    class="hover:text-primary transition-colors"
+                    >fer.aldam4@gmail.com</a
+                  >
+                </div>
+                <div class="flex items-center gap-3 text-sm">
+                  <span class="material-symbols-outlined text-primary text-lg"
+                    >call</span
+                  >
+                  <a
+                    href="tel:+595991247762"
+                    class="hover:text-primary transition-colors"
+                    >+595 991 247 762</a
+                  >
+                </div>
+                <div class="flex items-center gap-3 text-sm">
+                  <span class="material-symbols-outlined text-primary text-lg"
+                    >location_on</span
+                  >
+                  Itauguá, Paraguay
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <h4
+                class="font-bold text-slate-500 uppercase tracking-widest text-xs"
+                data-i18n="footer.quicklinks"
+              >
+                Quick Links
+              </h4>
+              <nav class="flex flex-col gap-2 text-sm">
+                <a
+                  id="footer-cv-link"
+                  class="hover:text-primary transition-colors"
+                  href="Fernando_Aldama_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="footer.resume"
+                  >Resume</a
+                >
+                <a
+                  class="hover:text-primary transition-colors"
+                  href="https://github.com/feraldama"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="footer.github"
+                  >GitHub</a
+                >
+                <a
+                  class="hover:text-primary transition-colors"
+                  href="https://linkedin.com/in/feraldam4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="footer.linkedin"
+                  >LinkedIn</a
+                >
+                <a
+                  class="hover:text-primary transition-colors"
+                  href="https://tecnovate.com.py/FerAldama"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="footer.portfolio"
+                  >Portfolio</a
+                >
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-20 pt-8 border-t border-slate-200 dark:border-[#233f48] flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500"
+        >
+          <p data-i18n="footer.copyright">
+            © 2024 Fernando Aldama. Built with Passion &amp; Scalability.
+          </p>
+          <div class="flex gap-6">
+            <a class="hover:text-primary" href="#" data-i18n="footer.privacy"
+              >Privacy Policy</a
+            >
+            <a class="hover:text-primary" href="#" data-i18n="footer.terms"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <button
+      id="scroll-to-top"
+      type="button"
+      aria-label="Volver arriba"
+      data-i18n-aria="aria.scrollTop"
+      class="fixed bottom-8 right-8 z-40 w-12 h-12 rounded-xl bg-primary hover:bg-primary/90 text-background-dark flex items-center justify-center border border-primary/20 shadow-lg transition-colors"
+    >
+      <span class="material-symbols-outlined text-2xl font-bold">keyboard_arrow_up</span>
+    </button>
+    <script src="i18n.js"></script>
+    <script>
+      (function () {
+        var btn = document.getElementById("scroll-to-top");
+        window.addEventListener("scroll", function () {
+          btn.classList.toggle("visible", window.scrollY > 300);
+        });
+        btn.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      })();
+    </script>
+  </body>
+</html>
