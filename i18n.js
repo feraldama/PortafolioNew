@@ -118,7 +118,7 @@ const translations = {
       "© {year} Fernando Aldama. Hecho con pasión y escalabilidad.",
 
     // Meta y accesibilidad
-    "meta.title": "Fer Aldama | Portfolio",
+    "meta.title": "Fer Aldama | Full Stack Developer Portfolio",
     "img.alt": "Retrato profesional de Fernando Aldama",
     "aria.linkedin": "Perfil de LinkedIn",
     "aria.whatsapp": "Contactar por WhatsApp",
@@ -243,7 +243,7 @@ const translations = {
       "© {year} Fernando Aldama. Built with Passion & Scalability.",
 
     // Meta and accessibility
-    "meta.title": "Fer Aldama | Portfolio",
+    "meta.title": "Fer Aldama | Full Stack Developer Portfolio",
     "img.alt": "Professional portrait of Fernando Aldama",
     "aria.linkedin": "LinkedIn profile",
     "aria.whatsapp": "Contact via WhatsApp",
